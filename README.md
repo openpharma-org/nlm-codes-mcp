@@ -1,7 +1,5 @@
 # Codes MCP Server
 
-[![CI/CD Pipeline](https://github.com/uh-joan/codes-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/uh-joan/codes-mcp-server/actions/workflows/ci.yml)
-[![Performance Monitoring](https://github.com/uh-joan/codes-mcp-server/actions/workflows/performance.yml/badge.svg)](https://github.com/uh-joan/codes-mcp-server/actions/workflows/performance.yml)
 [![npm version](https://badge.fury.io/js/@uh-joan%2Fcodes-mcp-server.svg)](https://badge.fury.io/js/@uh-joan%2Fcodes-mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![MCP SDK](https://img.shields.io/badge/MCP%20SDK-0.6.0-green.svg)](https://github.com/modelcontextprotocol/typescript-sdk)
@@ -40,7 +38,7 @@ This server provides a unified tool to search and access various clinical coding
 ### From npm
 
 ```bash
-npm install -g @uh-joan/codes-mcp-server
+npm install -g @openpharma-org/nlm-codes-mcp
 ```
 
 Then run directly:
@@ -52,7 +50,7 @@ codes-mcp-server
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/uh-joan/codes-mcp-server.git
+   git clone https://github.com/openpharma-org/nlm-codes-mcp.git
    cd codes-mcp-server
    ```
 
