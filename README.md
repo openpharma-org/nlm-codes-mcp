@@ -1,9 +1,5 @@
 # Codes MCP Server
 
-[![npm version](https://badge.fury.io/js/@uh-joan%2Fcodes-mcp-server.svg)](https://badge.fury.io/js/@uh-joan%2Fcodes-mcp-server)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![MCP SDK](https://img.shields.io/badge/MCP%20SDK-0.6.0-green.svg)](https://github.com/modelcontextprotocol/typescript-sdk)
-
 An MCP server providing access to clinical table search services and medical coding systems. This server enables AI assistants to query various clinical data tables including ICD codes, LOINC, HCPCS, medication databases, and other healthcare terminology systems through the National Library of Medicine's Clinical Tables API.
 
 ## 🏥 Supported Clinical Data Sources
@@ -32,42 +28,6 @@ This server provides a unified tool to search and access various clinical coding
 
 ### Genomics & Genetics
 - **NCBI Genes** - Human gene information from NCBI's Gene dataset
-
-## Installation
-
-### From npm
-
-```bash
-npm install -g @openpharma-org/nlm-codes-mcp
-```
-
-Then run directly:
-```bash
-codes-mcp-server
-```
-
-### From Source
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/openpharma-org/nlm-codes-mcp.git
-   cd codes-mcp-server
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Build the TypeScript code:
-   ```bash
-   npm run build
-   ```
-
-4. Start the server:
-   ```bash
-   npm start
-   ```
 
 ## Project Structure
 
@@ -272,68 +232,8 @@ The tool transforms complex parentheses expressions using boolean algebra for op
    npm run format
    ```
 
-## 📡 API Integration
-
-This server integrates with the [Clinical Table Search Service](https://clinicaltables.nlm.nih.gov/) provided by the National Library of Medicine. The API provides access to various clinical data tables with autocompletion and search capabilities.
-
-### Supported Data Sources
-- **NLM/NIH**: National Library of Medicine clinical tables
-- **CDC**: Centers for Disease Control data
-- **WHO**: World Health Organization classifications  
-- **CMS**: Centers for Medicare & Medicaid Services
-- **NCBI**: National Center for Biotechnology Information
-- **Regenstrief Institute**: Medical informatics research
-
-## 🏗️ Adding New Clinical Methods
-
-To add support for additional clinical data tables:
-
-1. Create a new method file in `src/tools/nlm-ct-codes/`:
-   ```typescript
-   // src/tools/nlm-ct-codes/my-clinical-method.ts
-   import { buildApiUrl } from './utils.js';
-   import { MyMethodParams, MyMethodResult } from './types.js';
-
-   export async function searchMyMethod(params: MyMethodParams): Promise<MyMethodResult> {
-     const url = buildApiUrl('my-table', params.terms, {
-       maxList: params.maxList,
-       // ... other parameters
-     });
-     
-     const response = await fetch(url);
-     if (!response.ok) {
-       throw new Error(`API request failed: ${response.statusText}`);
-     }
-     
-     const data = await response.json();
-     return {
-       method: 'my-method',
-       totalCount: data[0] || 0,
-       results: data[3]?.map(formatResult) || []
-     };
-   }
-   ```
-
-2. Add the method to the main handler in `src/tools/nlm-ct-codes/index.ts`
-3. Update the enum and type definitions in `types.ts`
-4. Add appropriate tests
-5. Update documentation
-
-## 📝 License
-
-MIT License - see [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for clinical tools
-5. Submit a pull request
-
 ## 📚 Resources
 
 - [Clinical Table Search Service](https://clinicaltables.nlm.nih.gov/)
-- [Model Context Protocol](https://github.com/modelcontextprotocol)
 - [Healthcare Terminology Standards](https://www.nlm.nih.gov/research/umls/)
 - [FHIR Terminology Services](https://hl7.org/fhir/terminology-service.html)
