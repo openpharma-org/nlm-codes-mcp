@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1765450126366,
+  "lastUpdate": 1765450127997,
   "repoUrl": "https://github.com/openpharma-org/nlm-codes-mcp",
   "entries": {
     "Node.js Benchmark": [
@@ -412,6 +412,165 @@ window.BENCHMARK_DATA = {
             "range": "1.93%",
             "unit": "ops/sec",
             "extra": "samples: 93, mean: 0.000035s"
+          }
+        ]
+      }
+    ],
+    "Transport Performance": [
+      {
+        "commit": {
+          "author": {
+            "email": "janisaez@gmail.com",
+            "name": "Joan",
+            "username": "uh-joan"
+          },
+          "committer": {
+            "email": "janisaez@gmail.com",
+            "name": "Joan",
+            "username": "uh-joan"
+          },
+          "distinct": true,
+          "id": "c9d3aee7dce6da1fbe9d750fe74a1814df722756",
+          "message": "Initial commit: nlm-codes-mcp\n\nOpenPharma MCP server - pharmaceutical and biomedical data access\n\nMigrated to openpharma-org with clean history and updated package scope.\nAll sensitive data removed, ready for public release.\n\nPart of OpenPharma: https://github.com/openpharma-org",
+          "timestamp": "2025-12-11T10:42:36Z",
+          "tree_id": "9fc5c8320481220eff84af75916c22973ef1fe2d",
+          "url": "https://github.com/openpharma-org/nlm-codes-mcp/commit/c9d3aee7dce6da1fbe9d750fe74a1814df722756"
+        },
+        "date": 1765450127351,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "MCP Server Creation",
+            "value": 103221.76612923322,
+            "range": "1.05%",
+            "unit": "ops/sec",
+            "extra": "samples: 95, mean: 0.000010s"
+          },
+          {
+            "name": "Config Loading - Default",
+            "value": 3359.8693337295526,
+            "range": "1.08%",
+            "unit": "ops/sec",
+            "extra": "samples: 92, mean: 0.000298s"
+          },
+          {
+            "name": "Config Loading - With Environment Variables",
+            "value": 74052.97490605009,
+            "range": "0.23%",
+            "unit": "ops/sec",
+            "extra": "samples: 97, mean: 0.000014s"
+          },
+          {
+            "name": "Logger Creation - error level",
+            "value": 174131243.77466947,
+            "range": "0.06%",
+            "unit": "ops/sec",
+            "extra": "samples: 95, mean: 0.000000s"
+          },
+          {
+            "name": "Logger Creation - warn level",
+            "value": 172227406.24798974,
+            "range": "1.03%",
+            "unit": "ops/sec",
+            "extra": "samples: 94, mean: 0.000000s"
+          },
+          {
+            "name": "Logger Creation - info level",
+            "value": 173902592.99636352,
+            "range": "0.11%",
+            "unit": "ops/sec",
+            "extra": "samples: 100, mean: 0.000000s"
+          },
+          {
+            "name": "Logger - Info Messages (100x)",
+            "value": 3403489.349241179,
+            "range": "0.41%",
+            "unit": "ops/sec",
+            "extra": "samples: 93, mean: 0.000000s"
+          },
+          {
+            "name": "Logger - Error Messages (100x)",
+            "value": 2285299.022350087,
+            "range": "0.32%",
+            "unit": "ops/sec",
+            "extra": "samples: 98, mean: 0.000000s"
+          },
+          {
+            "name": "JSON Serialization - Small Message",
+            "value": 2438657.986746548,
+            "range": "0.17%",
+            "unit": "ops/sec",
+            "extra": "samples: 97, mean: 0.000000s"
+          },
+          {
+            "name": "JSON Serialization - Medium Message",
+            "value": 29884.358232374765,
+            "range": "0.09%",
+            "unit": "ops/sec",
+            "extra": "samples: 96, mean: 0.000033s"
+          },
+          {
+            "name": "JSON Serialization - Large Message",
+            "value": 1415.8506509975136,
+            "range": "0.06%",
+            "unit": "ops/sec",
+            "extra": "samples: 96, mean: 0.000706s"
+          },
+          {
+            "name": "JSON Parse - Small Message",
+            "value": 934465.8491984353,
+            "range": "0.14%",
+            "unit": "ops/sec",
+            "extra": "samples: 98, mean: 0.000001s"
+          },
+          {
+            "name": "JSON Parse - Medium Message",
+            "value": 10878.807213661941,
+            "range": "0.09%",
+            "unit": "ops/sec",
+            "extra": "samples: 94, mean: 0.000092s"
+          },
+          {
+            "name": "JSON Parse - Large Message",
+            "value": 565.4110460019119,
+            "range": "0.55%",
+            "unit": "ops/sec",
+            "extra": "samples: 95, mean: 0.001769s"
+          },
+          {
+            "name": "Message Processing - Request Validation",
+            "value": 839979060.610322,
+            "range": "0.09%",
+            "unit": "ops/sec",
+            "extra": "samples: 97, mean: 0.000000s"
+          },
+          {
+            "name": "Mock Transport - Connection Setup",
+            "value": 8748111.788104521,
+            "range": "0.60%",
+            "unit": "ops/sec",
+            "extra": "samples: 90, mean: 0.000000s"
+          },
+          {
+            "name": "Mock Transport - Message Sending (10x)",
+            "value": 375824.3810483244,
+            "range": "0.43%",
+            "unit": "ops/sec",
+            "extra": "samples: 88, mean: 0.000003s"
+          },
+          {
+            "name": "Concurrent Config Loading (10x)",
+            "value": 11055.795840107345,
+            "range": "0.44%",
+            "unit": "ops/sec",
+            "extra": "samples: 88, mean: 0.000090s"
+          },
+          {
+            "name": "Concurrent Logger Creation (10x)",
+            "value": 467493.0274106673,
+            "range": "0.34%",
+            "unit": "ops/sec",
+            "extra": "samples: 90, mean: 0.000002s"
           }
         ]
       }
