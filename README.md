@@ -1,4 +1,4 @@
-# Codes MCP Server
+# Unofficial NLM Codes MCP Server
 
 An MCP server providing access to clinical table search services and medical coding systems. This server enables AI assistants to query various clinical data tables including ICD codes, LOINC, HCPCS, medication databases, and other healthcare terminology systems through the National Library of Medicine's Clinical Tables API.
 
@@ -29,101 +29,19 @@ This server provides a unified tool to search and access various clinical coding
 ### Genomics & Genetics
 - **NCBI Genes** - Human gene information from NCBI's Gene dataset
 
-## Project Structure
-
-```
-src/
-├── index.ts              # Main entry point
-├── types.ts              # TypeScript type definitions
-├── tools/                # Clinical search tool implementations
-│   ├── index.ts          # Tool registry
-│   └── nlm-ct-codes/     # Unified clinical search tools
-│       ├── index.ts      # Main tool definition and handler
-│       ├── types.ts      # Type definitions for all methods
-│       ├── utils.ts      # Shared utilities
-│       ├── icd-10-cm.ts  # ICD-10-CM search implementation
-│       ├── icd-11.ts     # ICD-11 search implementation
-│       ├── hcpcs-LII.ts  # HCPCS Level II search implementation
-│       ├── npi-organizations.ts    # NPI organization search
-│       ├── npi-individuals.ts      # NPI individual search
-│       ├── hpo-vocabulary.ts       # HPO phenotype search
-│       ├── conditions.ts           # Medical conditions search
-│       ├── rx-terms.ts             # Drug terminology search
-│       ├── loinc-questions.ts      # LOINC search
-│       ├── ncbi-genes.ts           # Gene information search
-│       └── major-surgeries-implants.ts # Surgical procedures
-├── transports/           # Transport implementations
-│   ├── mcp-server.ts     # Shared MCP server factory
-│   ├── stdio.ts          # Stdio transport
-│   ├── sse.ts            # Server-Sent Events transport
-│   └── http.ts           # HTTP transport
-└── utils/                # Utility modules
-    ├── config.ts         # Configuration loader
-    └── logger.ts         # Logging utility
-```
-
-## 🔧 Configuration
-
-The server can be configured using environment variables:
-
-### Clinical API Settings
-- `CLINICAL_API_BASE_URL`: Base URL for clinical table search API (default: 'https://clinicaltables.nlm.nih.gov')
-- `ENABLE_ICD_TOOLS`: Enable ICD code search tools (default: true)
-- `ENABLE_LOINC_TOOLS`: Enable LOINC search tools (default: true)
-- `ENABLE_DRUG_TOOLS`: Enable medication/drug search tools (default: true)
-- `ENABLE_GENOMIC_TOOLS`: Enable genomic search tools (default: true)
-- `ENABLE_NPI_TOOLS`: Enable NPI provider search tools (default: true)
-
-### Server Settings
-- `SERVER_NAME`: Server name (default: 'codes-mcp-server')
-- `SERVER_VERSION`: Server version (default: '0.1.2')
-- `USE_HTTP`: Set to 'true' for HTTP mode, 'false' for stdio mode (default: false)
-- `USE_SSE`: Set to 'true' for SSE mode (default: false)
-- `PORT`: HTTP server port (default: 3000)
-- `SSE_PATH`: SSE endpoint path (default: '/mcp')
-- `LOG_LEVEL`: Logging level - 'error', 'warn', 'info', 'debug' (default: 'info')
-
-### Security & Performance
-- `CORS_ORIGINS`: Comma-separated list of allowed CORS origins (default: '*')
-- `REQUEST_TIMEOUT`: Request timeout in milliseconds (default: 30000)
-- `MAX_REQUEST_SIZE`: Maximum request size in bytes (default: 1048576)
-- `MAX_CONNECTIONS`: Maximum concurrent connections (default: 100)
-- `ENABLE_PERFORMANCE_MONITORING`: Enable performance monitoring (default: false)
-
-### Development Settings
-- `NODE_ENV`: Environment mode (default: 'production')
-- `DEV_MODE`: Enable development mode (default: false)
-- `DEBUG`: Enable debug logging (default: false)
-- `ENABLE_EXPERIMENTAL_FEATURES`: Enable experimental features (default: false)
-
-## Cursor MCP Settings
-
-To use this server with Cursor, add this configuration to your `~/.cursor/mcp.json`:
+## Usage
 
    ```json
    {
   "codes-mcp-server": {
-       "command": "node",
-    "args": ["/path/to/codes-mcp-server/dist/index.js"],
-       "env": {
-         "USE_HTTP": "false",
-      "LOG_LEVEL": "info",
-      "ENABLE_ICD_TOOLS": "true",
-      "ENABLE_LOINC_TOOLS": "true",
-      "ENABLE_DRUG_TOOLS": "true",
-      "ENABLE_GENOMIC_TOOLS": "true",
-      "ENABLE_NPI_TOOLS": "true"
-       }
+      "command": "npx",
+      "args": ["-y","/path/to/codes-mcp-server/dist/index.js"],
+      "env": {}
      }
    }
    ```
 
-Make sure to:
-1. Build the TypeScript files first with `npm run build`
-2. Replace `/path/to/codes-mcp-server` with your actual project path
-3. Restart Cursor after making changes to `mcp.json`
-
-## 🔍 Available Tool
+## Available Tool
 
 ### Unified Clinical Search Tool: `nlm_ct_codes`
 
@@ -210,29 +128,7 @@ The tool transforms complex parentheses expressions using boolean algebra for op
 - `offset`: Starting result number for pagination (default: 0)
 - `count`: Page size for pagination (1-500, default: 7)
 
-## Development
-
-1. Start in watch mode:
-   ```bash
-   npm run dev
-   ```
-
-2. Run tests:
-   ```bash
-   npm test
-   ```
-
-3. Run type checking:
-   ```bash
-   npm run type-check
-   ```
-
-4. Format code:
-   ```bash
-   npm run format
-   ```
-
-## 📚 Resources
+## Resources
 
 - [Clinical Table Search Service](https://clinicaltables.nlm.nih.gov/)
 - [Healthcare Terminology Standards](https://www.nlm.nih.gov/research/umls/)
