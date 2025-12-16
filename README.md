@@ -2,7 +2,7 @@
 
 An MCP server providing access to clinical table search services and medical coding systems. This server enables AI assistants to query various clinical data tables including ICD codes, LOINC, HCPCS, medication databases, and other healthcare terminology systems through the National Library of Medicine's Clinical Tables API.
 
-## 🏥 Supported Clinical Data Sources
+## Supported Clinical Data Sources
 
 This server provides a unified tool to search and access various clinical coding systems and medical data tables:
 
@@ -34,8 +34,8 @@ This server provides a unified tool to search and access various clinical coding
    ```json
    {
   "codes-mcp-server": {
-      "command": "npx",
-      "args": ["-y","/path/to/codes-mcp-server/dist/index.js"],
+      "command": "node",
+      "args": ["/path/to/codes-mcp-server/build/index.js"],
       "env": {}
      }
    }
